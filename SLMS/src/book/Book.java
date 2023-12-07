@@ -4,10 +4,9 @@ public class Book {
 
     private String type;
     private String name;
-    private String auther;
     private int price;
+    private String auther;
     private boolean isborrowed;
-
     public Book(String type, String name, String auther, int price) {
         this.type = type;
         this.name = name;
@@ -58,11 +57,12 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "type='" + type + '\'' +
-                ", name='" + name + '\'' +
-                ", auther='" + auther + '\'' +
-                ", price=" + price +
-                ", isborrowed=" + isborrowed +
+                "type: '" + type + '\'' +
+                ", name: '" + name + '\'' +
+                ", auther: '" + auther + '\'' +
+                ", price: " + price +
+                ", state: " +
+                ((isborrowed == true)?" Out on loan":" Not on loan")+
                 '}';
     }
 }

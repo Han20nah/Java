@@ -5,20 +5,22 @@ import book.BookList;
 
 import java.util.Scanner;
 
-public class ReturnBook implements IOperation{
+public class SearchBook implements IOperation{
     @Override
     public void work(BookList bookList) {
-        System.out.println("Please enter the book you want to return. ");
+        System.out.println("Please enter the book you want to find. ");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
-        for (int i = 0; i < bookList.getUsedSize(); i++) {
+
+        int currentSize = bookList.getUsedSize();
+        for (int i = 0; i < currentSize; i++) {
             Book book = bookList.getBook(i);
             if(book.getName().equals(name)){
-                book.setIsborrowed(false);
+                System.out.println("Got it.Here's the information.");
                 System.out.println(book);
-                System.out.println("return success.");
+                return;
             }
         }
-        System.out.println("Can't return. ");
+        System.out.println("No relevant information found.");
     }
 }
